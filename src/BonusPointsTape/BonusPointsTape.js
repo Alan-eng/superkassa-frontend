@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import gift from './gift.svg';
 
 const style = {
@@ -9,7 +9,7 @@ const style = {
         backgroundColor: '#81D8F2',
         boxSizing: 'border-box',
         borderRadius: '2px',
-        
+        marginBottom: '70px'
     },
     labelStyle: {
         // fontFamily: 'Roboto',
