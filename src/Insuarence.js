@@ -49,11 +49,10 @@ transition: max-height 0.5s cubic-bezier(.525,.66,.495,1.4);
 display: flex;
 justify-content: space-between;
 color: #1A5488;
+margin-bottom: 24px;
 `
 
 const InsuarenceVariant = styled.div`
-margin-top: 1em;
-margin-bottom: 1em;
 padding: 1em;
 background-color: #F2FAFD;
 color: #10396;
@@ -96,7 +95,7 @@ class Insuarence extends React.Component {
                     <Icon />
                     <Label>Добавить страховки</Label>
                 </ContainerFlex>
-                <ContainerFlexJustify style={this.state.collapsed ? {} : {maxHeight: '140px'}}>
+                <ContainerFlexJustify style={this.state.collapsed ? {} : {maxHeight: '160px'}}>
                     <InsuarenceVariant>
                         <P>Страхование пассажиров от несчастного случая</P>
                         <Read_more>

@@ -1,0 +1,71 @@
+@import '../../../../themes/default/variables.css';
+@import '../../../../themes/default/mixins.css';
+
+.root {
+    padding-bottom: 64px;
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 16px;
+    position: relative;
+    padding: 0;
+    border: 0;
+
+    & > * {
+        flex: 1 0 auto;
+    }
+
+    @media (--only-tablet-screen) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    @media (--only-mobile-screen) {
+        flex-direction: column;
+    }
+
+    &.hasErrors {
+        border-top-color: var(--errorColor);
+
+        @media (--only-mobile-screen) {
+            border-top-color: transparent;
+        }
+    }
+}
+
+.genderroot{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+    padding: 0;
+    border: 0;
+    flex: 1 0;
+
+    & > * {
+        flex: 1 0 auto;
+    }
+}
+
+button.genderButton,
+button.selectedGenderButton {
+    @mixin unstyledButton;
+}
+
+button.genderButton {
+    color: rgba(0, 50, 103, 0.64);
+    & > * {
+        opacity: 0.24;
+    }
+}
+
+button.selectedGenderButton {
+    color: white;
+    background-color: #01bdea;
+}

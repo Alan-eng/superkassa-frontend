@@ -1,0 +1,40 @@
+@import '../../../../themes/default/variables.css';
+@import '../../../../themes/default/mixins.css';
+
+.root {
+    @mixin flexParent row, left, stretch;
+
+    border-top: 2px solid transparent;
+    flex-wrap: nowrap;
+    margin: 0 16px;
+    max-width: 1280px;
+    position: relative;
+    padding-bottom: 0;
+    position: relative;
+
+    & > * {
+        margin-bottom: 0;
+        border: 2 px red;
+    }
+
+    & input {
+        padding: 8px;
+    }
+
+    @media (--only-tablet-screen) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    @media (--only-mobile-screen) {
+        flex-direction: column;
+    }
+
+    &.hasErrors {
+        border-top-color: var(--errorColor);
+
+        @media (--only-mobile-screen) {
+            border-top-color: transparent;
+        }
+    }
+}

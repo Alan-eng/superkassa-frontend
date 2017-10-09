@@ -3,14 +3,19 @@ import React, { Component } from 'react';
 import './App.css';
 // import List from './List'
 import styled from 'styled-components';
-import PaymentMethods from './PaymentMethods'
-import BonusPointsTape from './BonusPointsTape/BonusPointsTape'
 
-import PayButton from './PayButton'
+import Input from './Input'
+import Select from './Select'
 
-import Insuarence from './Insuarence'
+import PaymentMethods from './PaymentMethods';
+import BonusPointsTape from './BonusPointsTape/BonusPointsTape';
 
-import TotalCost from './TotalCost'
+import PayButton from './PayButton';
+
+import Transfer from './Transfer';
+import Insuarence from './Insuarence';
+
+import TotalCost from './TotalCost';
 
 // const style = {
 //   // block: {
@@ -37,7 +42,10 @@ class App extends Component {
   render() {
     return (
       <div className="App" style={{ backgroundColor: '#DFF0F9' }}>
+          <Select />
+          <Input >Тестовый вариант</Input >
         <ContainerCenter>
+          <Transfer />
           <Insuarence/>
           <PaymentMethods/>
           <BonusPointsTape />
