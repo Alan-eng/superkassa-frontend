@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 
 const Wrapper = styled.div`
 position: relative;
-flex: 1;
+flex: 0.6;
 background: #FFFFFF;
 `
 const StyledInput = styled.input`
-height: 64px;
 box-sizing: border-box;
 width: 100%;
 border: none;
+height: 64px;
 font-size: 16px;
 color: #0F3166;
 padding-left: 10px;

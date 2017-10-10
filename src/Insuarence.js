@@ -7,19 +7,17 @@ import Checkbox from './Checkbox';
 // когда устанавилваем primary property - добавляем еще немного CSS
 //все вендорные префиксы будут выставлены автоматически, так что не нужно даже о них думать
 
-const Icon = () => {
-    return (
-        <svg width="20" height="18" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink">
-            <desc>Created using Figma</desc>
-            <use xlinkHref="#a" fill="#003267" />
-            <use xlinkHref="#a" fill="#01BDEA" fillOpacity=".24" />
-            <defs>
-                <path id="a" d="M6.006 0v4H3.01C1.86 4 1.132 5 1.012 6L.014 16c-.12 1 .54 2 1.997 2h15.98c1.457 0 2.116-1 1.996-2l-.998-10c-.12-1-.94-2-1.998-2h-2.995V0h-7.99zm1.997 2h3.994v2H8.003V2zM9 7h2v3h2.995v2h-2.996v3H9v-3H6.007v-2H9V7z"
-                />
-            </defs>
-        </svg>)
-}
+const InsuarenceIcon = <svg width="20" height="18" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink">
+    <desc>Created using Figma</desc>
+    <use xlinkHref="#InsuarenceIcon" fill="#003267" />
+    <use xlinkHref="#InsuarenceIcon" fill="#01BDEA" fillOpacity=".24" />
+    <defs>
+        <path id="InsuarenceIcon" d="M6.006 0v4H3.01C1.86 4 1.132 5 1.012 6L.014 16c-.12 1 .54 2 1.997 2h15.98c1.457 0 2.116-1 1.996-2l-.998-10c-.12-1-.94-2-1.998-2h-2.995V0h-7.99zm1.997 2h3.994v2H8.003V2zM9 7h2v3h2.995v2h-2.996v3H9v-3H6.007v-2H9V7z"
+        />
+    </defs>
+</svg>
+
 
 // ---------------------------------------------------
 
@@ -49,7 +47,6 @@ transition: max-height 0.5s cubic-bezier(.525,.66,.495,1.4);
 display: flex;
 justify-content: space-between;
 color: #1A5488;
-margin-bottom: 24px;
 `
 
 const InsuarenceVariant = styled.div`
@@ -59,6 +56,8 @@ color: #10396;
 width: 28%;
 border: 1px solid #8BDDF5;
 border-radius: 4px;
+margin-top: 20px;
+margin-bottom: 24px;
 `
 const Read_more = styled.div`
 display: flex;
@@ -87,15 +86,14 @@ class Insuarence extends React.Component {
         }
     }
 
-
     render() {
         return (<div>
             <Wrapper>
                 <ContainerFlex onClick={(e) => this.setState({ collapsed: !this.state.collapsed })}>
-                    <Icon />
+                    {InsuarenceIcon}
                     <Label>Добавить страховки</Label>
                 </ContainerFlex>
-                <ContainerFlexJustify style={this.state.collapsed ? {} : {maxHeight: '160px'}}>
+                <ContainerFlexJustify style={this.state.collapsed ? {} : { maxHeight: '160px' }}>
                     <InsuarenceVariant>
                         <P>Страхование пассажиров от несчастного случая</P>
                         <Read_more>

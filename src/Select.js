@@ -1,21 +1,40 @@
 import styled from 'styled-components';
 import React from 'react';
 
-const Wrapper = styled.div`
+const Wrapper = styled.button`
 display: flex;
 align-items: center;
 position: relative;
 background: grey;
 font-size: 18px;
+cursor: pointer;
+
+outline: none;
+border: none;
 `
-const Select = styled.div`
+const SelectLabel = styled.div`
 padding: 10px;
 `
+const Ul = styled.ul`
+text-align: left;
+position: absolute;
+top: 100%;
+width: 100%;
+background: #fff;
+z-index: 3;
+list-style: none;
+padding: 0;
+`
+const Li = styled.li`
+padding-left: 10px;
+padding-bottom: 5px;
+`
 
-class Input extends React.Component {
+class Select extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            opened: false,
             currentOption: '',
         }
         // this.handleChange = this.handleChange.bind(this);
@@ -24,20 +43,29 @@ class Input extends React.Component {
 
     selectValue (){
         this.setState({currentOption: this.refs.selector.value})
-        // console.log(this.refs.selector.value)
+    }
+
+    handleDropdown () {
+        this.setState({
+            opened: !this.state.opened,
+        })
     }
 
     render () {
         return(
         <Wrapper>
-            <Select type='text' ref = 'selector' onChange = {(e) => {this.selectValue()}} value = {this.state.currentOption}>
-                {/* <option value=''></option>
-                <option value='us'>United States</option>
-                <option value='fr'>France</option>
-                <option value='ca'>Canada</option> */}
+            <SelectLabel type='text' ref = 'selector' onClick = {(e) => {this.handleDropdown()}} onChange = {(e) => {this.selectValue()}} value = {this.state.currentOption}>
                Dropdown
-            </Select>
-            <div>&#9660;</div>
+            </SelectLabel>
+            <div onClick = {(e) => {this.handleDropdown()}}>{ this.state.opened ? '\u25B2': '\u25BC'} </div>
+            {this.state.opened && 
+            <Ul>
+                <Li>Лондон</Li>
+                <Li>Париж</Li>
+                <Li>НьюЙорк</Li>
+                <Li>Сан-Франциско</Li>
+                <Li>Джерси</Li>
+            </Ul>}
         </Wrapper>
         )
     }
@@ -86,4 +114,4 @@ class Input extends React.Component {
 //     )
 // }
 
-export default Input 
+export default Select 
