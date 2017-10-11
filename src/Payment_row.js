@@ -77,19 +77,33 @@ font-size: 14px;
 color: #2575A6;
 `
 
-const Payment_row = () => {
-    return (
-        <section>
+class Payment_row extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            checked: 'bankCard',
+        }
+        this.handleChecked = this.handleChecked.bind(this);
+    }
+
+    handleChecked(value) {
+        this.setState({ checked: value })
+    }
+
+    render() {
+        let borderStyleOnFocus = { outline: '2px solid #01BDEA' }
+        return (
+            <section>
             <Title>Способ оплаты</Title>
             <ContainerFlex>
                 {/* <PaymentLogoBankCard1 /> */}
-                <PaymentLogoBankCard />
-                <PaymentLogoYandex />
-                <PaymentLogoWebmoney />
-                <PaymentLogoQiwi />
-                <PaymentLogoKviku />
-                <PaymentLogoEuroset />
-                <PaymentLogoSuperkassa />
+                <PaymentLogoBankCard checked={this.state.checked === 'bankCard' ? true : false} handleChecked={this.handleChecked} />
+                <PaymentLogoYandex checked={this.state.checked === 'yandexMoney' ? true : false} handleChecked={this.handleChecked}/>
+                <PaymentLogoWebmoney checked={this.state.checked === 'webMoney' ? true : false}  handleChecked={this.handleChecked}/>
+                <PaymentLogoQiwi checked={this.state.checked === 'qiwi' ? true : false}  handleChecked={this.handleChecked}/>
+                <PaymentLogoKviku checked={this.state.checked === 'kviku' ? true : false}  handleChecked={this.handleChecked}/>
+                <PaymentLogoEuroset checked={this.state.checked === 'euroset' ? true : false}  handleChecked={this.handleChecked}/>
+                <PaymentLogoSuperkassa checked={this.state.checked === 'superkassa' ? true : false}  handleChecked={this.handleChecked}/>
             </ContainerFlex>
             <BonusPointsTape>
                 {gift}
@@ -104,8 +118,43 @@ const Payment_row = () => {
                 </div>
             </FlexContainer>
         </section>
-
-    )
+        )
+    }
 }
+
+
+
+
+
+// const Payment_row = () => {
+//     return (
+        // <section>
+        //     <Title>Способ оплаты</Title>
+        //     <ContainerFlex>
+        //         {/* <PaymentLogoBankCard1 /> */}
+        //         <PaymentLogoBankCard />
+        //         <PaymentLogoYandex />
+        //         <PaymentLogoWebmoney />
+        //         <PaymentLogoQiwi />
+        //         <PaymentLogoKviku />
+        //         <PaymentLogoEuroset />
+        //         <PaymentLogoSuperkassa />
+        //     </ContainerFlex>
+        //     <BonusPointsTape>
+        //         {gift}
+        //         <Label> <strong>На вашем счету есть 80 бонусных баллов,</strong> которые можно использовать для оплаты. Укажите, сколько бонусов вы хотите списать </Label>
+        //         <InputBonuses>Бонусных баллов к списанию</InputBonuses>
+        //     </BonusPointsTape>
+        //     <FlexContainer>
+        //         <PayButton>ПЕРЕЙТИ К ОПЛАТЕ</PayButton>
+        //         <div >
+        //             <TotalCost>Общая стоимость: 23 529 Р</TotalCost>
+        //             <Bonuses>Бонусов к зачислению: +20</Bonuses>
+        //         </div>
+        //     </FlexContainer>
+        // </section>
+
+//     )
+// }
 
 export default Payment_row

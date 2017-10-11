@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import euroset from './euroset.svg';
+import styled from 'styled-components';
 
-const style = {
-    block: {
-        width: '128px',
-        height: '128px',
-        color: 'green',
-        backgroundColor: 'rgba(255, 255, 255, 0.4)',
-        border: '2px solid rgba(1, 189, 234, 0.16)',
-        boxSizing: 'border-box',
-        borderRadius: '4px'
-    },
-    labelStyle: {
-        // fontFamily: 'Roboto',
-        color: '#133F74',
-        fontSize: '16px'
-    },
-    iconStyle:{
-        paddingTop: '30px',
-        paddingBottom: '10px'
-    }
-}
+const Container = styled.div` 
+padding-top: 28px;
+fontSize: 16px;
+color: #254A78;
+width: 128px;
+height: 128px;
+background-color: rgba(255, 255, 255, 0.4);
+background: ${props => props.checked === true ? 'white' : '#EDF6FB'};
+border: ${props => props.checked === true ? '2px solid #79D3FC' : '2px solid #CFEDF8'} ;
+box-sizing: border-box;
+border-radius: 4px;
+cursor: pointer;
+`;
 
-const PaymentLogoEuroset = () => {
-    return <div style={style.block}>
-        <object type="image/svg+xml" data={euroset} style={style.iconStyle}>Your browser does not support SVGs</object>
-        <div style={style.labelStyle}> Евросеть </div>
-    </div>
+const PaymentLogoEuroset = (props) => {
+    return (
+        <Container checked={props.checked} onClick={() => props.handleChecked('euroset')} >
+        <object type="image/svg+xml" data={euroset}>Your browser does not support SVGs</object>
+        <div style={{marginTop: '10px'}}> Евросеть </div>
+        {props.checked === true ? <div style={{marginTop: '30px'}}>Сбор 450 Р</div> : ''}
+    </Container>
+    )
 }
 
 export default PaymentLogoEuroset

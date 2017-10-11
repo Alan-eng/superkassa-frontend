@@ -1,38 +1,43 @@
 import React, { Component } from 'react';
 import bankCard from './bankCard.svg';
+import styled from 'styled-components';
 
-const style = {
-    block: {
-        width: '128px',
-        height: '128px',
-        color: 'green',
-        backgroundColor: 'rgba(255, 255, 255, 0.4)',
-        border: '2px solid rgba(1, 189, 234, 0.16)',
-        boxSizing: 'border-box',
-        borderRadius: '4px',
-    },
-    labelStyle: {
-        // fontFamily: 'Roboto',
-        color: '#133F74',
-        fontSize: '16px'
-    },
-    iconStyle:{
-        paddingTop: '30px',
-        paddingBottom: '20px'
-    }
-}
+const bankCardIcon = <svg width='40' height='32' viewBox='0 0 40 32' xmlns='http://www.w3.org/2000/svg'
+xmlnsXlink='http://www.w3.org/1999/xlink'>
+    <desc>Created using Figma</desc>
+    <use xlinkHref='#bankCardIcon1' fill='#003267' />
+    <use xlinkHref='#bankCardIcon2' transform='translate(28 23)' fill='#01BDEA' />
+    <use xlinkHref='#bankCardIcon2' transform='translate(31 23)' fill='#E75300' />
+    <defs>
+        <path id='bankCardIcon1' fillRule='evenodd' d='M0 4c0-2.21 1.79-4 4-4h32c2.21 0 4 1.79 4 4v24c0 2.21-1.79 4-4 4H4c-2.21 0-4-1.79-4-4V4zm4-2h32c1.105 0 2 .895 2 2v5H2V4c0-1.105.896-2 2-2zM2 14v14c0 1.105.896 2 2 2h32c1.105 0 2-.895 2-2V14H2z'
+        />
+        <path id='bankCardIcon2' d='M4 2c0 1.105-.895 2-2 2s-2-.895-2-2 .895-2 2-2 2 .895 2 2z'
+        />
+    </defs>
+</svg>
 
-// const paymentBanks = ['Банковская карта', 'Яндекс Деньги', 'Webmoney', 'Qiwi', 'Kviku билет в кредит', 'Евросеть', э ]
-
+const Container = styled.div` 
+padding-top: 26px;
+fontSize: 16px;
+width: 128px;
+height: 128px;
+color: #254A78;
+background-color: rgba(255, 255, 255, 0.4);
+background: ${props => props.checked === true ? 'white' : '#EDF6FB'};
+border: ${props => props.checked === true ? '2px solid #79D3FC' : '2px solid #CFEDF8'} ;
+box-sizing: border-box;
+border-radius: 4px;
+cursor: pointer;
+`;
 
 class PaymentLogoBankCard extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            focused: false,
+            checked: this.props.checked,
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleLabelStyle = this.handleLabelStyle.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleLabelStyle = this.handleLabelStyle.bind(this);
     }
 
     handleChange(event) {
@@ -42,21 +47,22 @@ class PaymentLogoBankCard extends React.Component {
     render() {
         let borderStyleOnFocus = { outline: '2px solid #01BDEA' }
         return (
-            <div style={style.block}>
-            <object type="image/svg+xml" data={bankCard} style={style.iconStyle}>Your browser does not support SVGs</object>
-            <div style={style.labelStyle}> Банковская карта </div>
-            </div>
+            <Container checked={this.props.checked} onClick={() => this.props.handleChecked('bankCard')} >
+                {bankCardIcon}
+            {/* <object type="image/svg+xml" data={bankCard} style={style.iconStyle}>Your browser does not support SVGs</object> */}
+            <div style={{marginTop: '20px'}}> Банковская карта </div>
+            </Container>
         )
     }
-}
+ }
 
 
-// const PaymentLogoBankCard = () => {
+// const PaymentLogoBankCard = (props) => {
 
-//     return <div style={style.block}>
-//         <object type="image/svg+xml" data={bankCard} style={style.iconStyle}>Your browser does not support SVGs</object>
-//         <div style={style.labelStyle}> Банковская карта </div>
-//     </div>
+//     return <Container checked={props.checked}>
+//             <object type="image/svg+xml" data={bankCard} style={style.iconStyle}>Your browser does not support SVGs</object>
+//             <div style={style.labelStyle}> Банковская карта </div>
+//             </Container>
 // }
 
 export default PaymentLogoBankCard
