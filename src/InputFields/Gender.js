@@ -26,6 +26,9 @@ const femaleIcon = <svg width='16' height='34' viewBox='0 0 16 34' xmlns='http:/
 
 
 const Wrapper = styled.div`
+border-radius: 3px 0px 0px 0px;
+box-sizing: border-box;
+height: 64px;
 position: relative;
 flex: 0.6;
 display: flex;

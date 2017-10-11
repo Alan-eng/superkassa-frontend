@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Input from './Input';
-import Gender from './Gender';
-import DateOfBirth from './DateOfBirth';
+import Gender from './InputFields/Gender';
+import DateOfBirth from './InputFields/DateOfBirth';
+import Surname from './InputFields/Surname';
+import Name from './InputFields/Name';
+import Patronymic from './InputFields/Patronymic';
+import Citizenship from './InputFields/Citizenship';
+import DocumentNumber from './InputFields/DocumentNumber';
+import ValidityOf from './InputFields/ValidityOf';
 
 
 const iconList = <svg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'
@@ -21,17 +26,35 @@ const iconList = <svg width='18' height='18' viewBox='0 0 18 18' xmlns='http://w
 const Wrapper = styled.section`
 padding-left: 32px;
 padding-right: 32px;
+padding-bottom: 42px;
+padding-top: 42px;
 `
 
 const Title = styled.h1` 
+margin: 0;
 font-weight: 300;
 text-align: left;
 font-size: 28px;
 color: #003267;
 `;
 
-// флекс-контейнер
+const SubTitle = styled.h2` 
+font-weight: 300;
+text-align: left;
+font-size: 18px;
+color: #003267;
+`;
+
+const FlexContainerTitle = styled.section`
+margin-bottom: 20px;
+justify-content: space-between;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+`;
+
 const FlexContainer = styled.section`
+margin-bottom: 2px;
 justify-content: space-between;
 display: flex;
 flex-wrap: wrap;
@@ -47,30 +70,38 @@ const LinkContainer = styled.div`
 display: flex;
 align-items: center;
 `
+const Note = styled.div`
+margin-top: 14px;
+font-size: 14px;
+color: #55769C;
+text-align: right;
+`
 
 
 const PassportData_row = () => {
     return (
         <Wrapper>
-            <FlexContainer>
+            <FlexContainerTitle>
                 <Title>Данные пассажиров для оформления билетов</Title>
                 <LinkContainer>
                     {iconList}
                     <Link href='#'>Примеры заполнения</Link>
                 </LinkContainer>
-            </FlexContainer>
+            </FlexContainerTitle>
+            <SubTitle>Взрослый пассажир</SubTitle>
             <FlexContainer>
                 <Gender> Пол </Gender>
-                <Input> Фамилия </Input>
-                <Input> Имя </Input>
-                <Input> Отчество </Input>
+                <Surname> Фамилия </Surname>
+                <Name> Имя </Name>
+                <Patronymic> Отчество </Patronymic>
             </FlexContainer>
             <FlexContainer>
                 <DateOfBirth> Дата рождения </DateOfBirth>
-                <Input> Гражданство </Input>
-                <Input> Номер документа </Input>
-                <Input> Срок действия </Input>
+                <Citizenship> Гражданство </Citizenship>
+                <DocumentNumber> Номер документа </DocumentNumber>
+                <ValidityOf> Срок действия </ValidityOf>
             </FlexContainer>
+            <Note>Только для заграничных паспортов</Note>
         </Wrapper>)
 }
 

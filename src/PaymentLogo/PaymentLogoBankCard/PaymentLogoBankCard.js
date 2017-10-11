@@ -25,13 +25,38 @@ const style = {
 // const paymentBanks = ['Банковская карта', 'Яндекс Деньги', 'Webmoney', 'Qiwi', 'Kviku билет в кредит', 'Евросеть', э ]
 
 
+class PaymentLogoBankCard extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            focused: false,
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleLabelStyle = this.handleLabelStyle.bind(this);
+    }
 
-const PaymentLogoBankCard = () => {
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+    }
 
-    return <div style={style.block}>
-        <object type="image/svg+xml" data={bankCard} style={style.iconStyle}>Your browser does not support SVGs</object>
-        <div style={style.labelStyle}> Банковская карта </div>
-    </div>
+    render() {
+        let borderStyleOnFocus = { outline: '2px solid #01BDEA' }
+        return (
+            <div style={style.block}>
+            <object type="image/svg+xml" data={bankCard} style={style.iconStyle}>Your browser does not support SVGs</object>
+            <div style={style.labelStyle}> Банковская карта </div>
+            </div>
+        )
+    }
 }
+
+
+// const PaymentLogoBankCard = () => {
+
+//     return <div style={style.block}>
+//         <object type="image/svg+xml" data={bankCard} style={style.iconStyle}>Your browser does not support SVGs</object>
+//         <div style={style.labelStyle}> Банковская карта </div>
+//     </div>
+// }
 
 export default PaymentLogoBankCard

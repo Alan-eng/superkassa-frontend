@@ -30,11 +30,12 @@ const Wrapper = styled.section`
 padding-left: 32px;
 padding-right: 32px;
 background-color: #B1E4F6;
+border-radius: 3px;
 `
 
 const ContainerFlex = styled.div`
-padding-bottom: 0.5em;
-padding-top: 0.5em;
+padding-bottom: 14px;
+padding-top: 14px;
 display: flex;
 color: #1A5488;
 cursor: pointer;
@@ -55,8 +56,7 @@ background-color: #F2FAFD;
 color: #10396;
 width: 28%;
 border: 1px solid #8BDDF5;
-border-radius: 4px;
-margin-top: 20px;
+margin-top: 8px;
 margin-bottom: 24px;
 `
 const Read_more = styled.div`
@@ -78,7 +78,7 @@ font-weight: 600;
 border-bottom: 1px solid currentColor;
 `
 
-class Insuarence extends React.Component {
+class Insuarence_row extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -123,4 +123,4 @@ class Insuarence extends React.Component {
     }
 }
 
-export default Insuarence
+export default Insuarence_row

@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 
 const Wrapper = styled.div`
 position: relative;
-flex: 0.6;
+flex: 1;
 background: #FFFFFF;
+margin-left: 2px;
 `
 const StyledInput = styled.input`
+height: 64px;
 box-sizing: border-box;
 width: 100%;
 border: none;
-height: 64px;
 font-size: 16px;
 color: #0F3166;
 padding-left: 10px;
@@ -28,7 +29,7 @@ transition: all .2s ease-out;
 `
 
 
-class Input extends React.Component {
+class Name extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -63,14 +64,5 @@ class Input extends React.Component {
         )
     }
 }
-// const Input = () => {
-//     let border = {backgroundColor: 'red'};
-//     return(
-//     <Wrapper>
-//         <Label>Name</Label>
-//         <StyledInput type='text' style={border} onFocus={(e) => {border = {backgroundColor: 'green'}}}/>
-//     </Wrapper>
-//     )
-// }
 
-export default Input 
+export default Name 

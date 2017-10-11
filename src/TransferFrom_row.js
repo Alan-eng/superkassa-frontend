@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Checkbox from './Checkbox';
-import Input from './Input';
+import Input from './InputFields/PresentationalComponent/Input';
+import ArrivalTable from './InputFields/ArrivalTable';
 
 
 //styled - это полноценный компонент Реакта, и у него вызываем функцию button с помощью синтаксиса шаблонной строки, тоже самое, что при мпомощи скобок, только после вызова строка преобразуется к массиву
@@ -31,6 +32,7 @@ margin-left: 1em;
 
 
 const Wrapper = styled.section`
+border-radius: 3px;
 padding-left: 32px;
 padding-right: 32px;
 background-color: #B1E4F6;
@@ -39,14 +41,15 @@ box-sizing:border-box;
 `
 
 const ContainerFlex = styled.div`
-padding-bottom: 0.5em;
-padding-top: 0.5em;
+padding-bottom: 14px;
+padding-top: 14px;
 display: flex;
 color: #1A5488;
 cursor: pointer;
 `
 
 const ContainerFlexJustify = styled.div`
+border: 4px;
 max-height: 0px;
 overflow: hidden;
 transition: max-height 0.5s cubic-bezier(.525,.66,.495,1.4);  
@@ -55,6 +58,7 @@ color: #1A5488;
 `
 
 const ContainerFlex_margin = styled.div`
+width: 100%;
 margin-top: 14px;
 margin-bottom: 24px;
 display: flex;
@@ -81,7 +85,7 @@ class Transfer extends React.Component {
                 <ContainerFlexJustify style={this.state.collapsed ? {} : { maxHeight: '160px' }}>
                     <ContainerFlex_margin>
                         <Input> Время подачи </Input>
-                        <Input> Надпись на табличке для встречи </Input>
+                        <ArrivalTable> Надпись на табличке для встречи </ArrivalTable>
                         <Input> Адрес назначения </Input>
                         <Input> Примечания </Input>
                     </ContainerFlex_margin>

@@ -5,6 +5,7 @@ const Wrapper = styled.div`
 position: relative;
 flex: 1;
 background: #FFFFFF;
+margin-left: 2px;
 `
 const StyledInput = styled.input`
 height: 64px;
@@ -28,7 +29,7 @@ transition: all .2s ease-out;
 `
 
 
-class Input extends React.Component {
+class InputEmail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -63,14 +64,5 @@ class Input extends React.Component {
         )
     }
 }
-// const Input = () => {
-//     let border = {backgroundColor: 'red'};
-//     return(
-//     <Wrapper>
-//         <Label>Name</Label>
-//         <StyledInput type='text' style={border} onFocus={(e) => {border = {backgroundColor: 'green'}}}/>
-//     </Wrapper>
-//     )
-// }
 
-export default Input 
+export default InputEmail 

@@ -3,7 +3,6 @@
 .App {
   text-align: center;
   font-family: 'Roboto';
-  border-radius: 3px;
 }
 
 /* .App-logo {
@@ -32,14 +31,6 @@
 } */
 
 
-/*
- * Settings
- */
- body {
-  color: #777;
-  font-family: sans-serif;
-  padding: 2rem;
-}
 
 /*
  * 1. So dropdown child is correct width.

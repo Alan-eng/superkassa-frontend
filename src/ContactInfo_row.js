@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Input from './Input';
+import InputEmail from './InputFields/InputEmail';
+import InputTelephone from './InputFields/InputTelephone';
 
-// внутренние отступы
 const Wrapper = styled.section`
 padding-left: 32px;
 padding-right: 32px;
+padding-top: 42px;
 `
-
-// флекс-контейнер
 const FlexContainer = styled.section`
 justify-content: space-between;
 display: flex;
@@ -17,6 +16,8 @@ align-items: center;
 `;
 
 const Title = styled.h1` 
+margin: 0;
+margin-bottom: 20px;
 font-weight: 300;
 text-align: left;
 font-size: 28px;
@@ -38,8 +39,8 @@ const ContactInfo_row = () => {
         <Wrapper>
             <Title>Контактная информация для заказа</Title>
             <FlexContainer>
-                <Input> E-mail </Input>
-                <Input> Телефон </Input>
+                <InputEmail> E-mail </InputEmail>
+                <InputTelephone> Телефон </InputTelephone>
                 <Note> На e-mail мы высылаем маршрутную квитанцию. По телефону информируем о возможных изменениях в расписании рейсов.  </Note>
             </FlexContainer>
         </Wrapper>)
